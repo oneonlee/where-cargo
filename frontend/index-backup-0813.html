@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어디카르고</title>
+    <script src="https://kit.fontawesome.com/7328514f42.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style-backup-0813.css">
+</head>
+
+<body>
+    <div id="header">
+        <div id="header_index">
+            어디카르고
+        </div>
+    </div>
+    <div id="slide">
+        <input type="radio" name="pos" id="pos1" checked>
+        <input type="radio" name="pos" id="pos2">
+        <ul id="slideUl">
+            <li class="slideLi">
+                <ul id="parkSlide">
+                    <li class="park" id="area1" onclick="turnParkinglot_1();">
+                        <div class="parktable_1">1</div>
+                        <div class="parktable_1">2</div>
+                        <div class="parktable_1">3</div>
+                        <div class="parktable_1">4</div>
+                    </li>
+                    <li class="park" id="area2" onclick="turnParkinglot_2();">
+                        <div class="parktable_2">1</div>
+                        <div class="parktable_2">2</div>
+                        <div class="parktable_2">3</div>
+                        <div class="parktable_2">4</div>
+
+                        <div class="parktable_2 parkarea_under">5</div>
+                        <div class="parktable_2 parkarea_under">6</div>
+                        <div class="parktable_2 parkarea_under">7</div>
+                        <div class="parktable_2 parkarea_under">8</div>
+                    </li>
+                    <div class="park_status" id="first_status">주차가능</div>
+                    <div class="park_status" id="second_status">주차중(화물차)</div>
+                    <div class="park_status" id="third_status">주차중(승용차)</div>
+                    <div class="park_status_icon" id="first_status_icon">ㅤ</div>
+                    <div class="park_status_icon" id="second_status_icon">ㅤ</div>
+                    <div class="park_status_icon" id="third_status_icon">ㅤ</div>
+                </ul>
+                <p class="park_pos">
+                    <label for="parklot_1">
+                        <span type="button" class="btn btn-primary" id="parkinglot_button_1"
+                            onclick="turnParkinglot_1();">구역1</span>
+                    </label>
+                    <label for="parklot_2">
+                        <span type="button" class="btn btn-primary" id="parkinglot_button_2"
+                            onclick="turnParkinglot_2();">구역2</span>
+                    </label>
+                </p>
+            </li>
+            <li class="slideLi">
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown link
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <div id="shipment">
+                    <i class="fas fa-ship fa-5x ship-icon"></i>
+                    <div id="ship_name">STAR VOYAGER</div>
+                    <div class="progress" id="shipmentStatus_1">
+                        <div class="color"></div>
+                    </div>
+                    <div class="progress_status" id="progress_status_1">
+                        68/72 양하
+                    </div>
+                    <div class="progress" id="shipmentStatus_2">
+                        <div class="color"></div>
+                    </div>
+                    <div class="progress_status" id="progress_status_2">
+                        72/199 양하
+                    </div>
+                    <div class="progress" id="shipmentStatus_3">
+                        <div class="color"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <p class="pos">
+            <label for="pos1">
+                <span type="button" class="btn btn-primary" id="PrimaryButton1">주차장현황</span>
+            </label>
+            <label for="pos2">
+                <span type="button" class="btn btn-primary" id="PrimaryButton2">작업현황</span>
+            </label>
+        </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script>
+        let park_area = [0, 0];
+        let area1 = document.getElementById("area1");
+        let area2 = document.getElementById("area2");
+        let parking_table_1 = document.getElementsByClassName("parktable_1");
+        let parking_table_2 = document.getElementsByClassName("parktable_2");
+        let parkarea_under = document.getElementsByClassName("parkarea_under");
+        function turnParkinglot_1() {
+            if (park_area[1] == 1) {
+                park_area[1] = 0;
+                turnParkinglot_2_smaller();
+            }
+            if (park_area[0] == 0) {
+                park_area[0] = 1;
+                area1.style['width'] = "80vw";
+                area1.style['height'] = "110%";
+                area1.style['left'] = "8vw";
+                area1.style['z-index'] = "9999";
+                for (let i = 0; i < parking_table_1.length; i++) {
+                    parking_table_1.item(i).style.width = "15vw";
+                    parking_table_1.item(i).style.height = "15vh";
+                    parking_table_1.item(i).style.border = "4px solid black";
+                    parking_table_1.item(i).style["margin-left"] = "2vw";
+                }
+            }
+            else {
+                park_area[0] = 0;
+                turnParkinglot_1_smaller();
+            }
+        }
+        function turnParkinglot_2() {
+            if (park_area[0] == 1) {
+                park_area[0] = 0;
+                turnParkinglot_1_smaller();
+            }
+            if (park_area[1] == 0) {
+                park_area[1] = 1;
+                area2.style['width'] = "80vw";
+                area2.style['height'] = "110%";
+                area2.style['left'] = "8vw";
+                area2.style['z-index'] = "9999";
+                for (let i = 0; i < parking_table_2.length; i++) {
+                    parking_table_2.item(i).style.width = "15vw";
+                    parking_table_2.item(i).style.height = "15vh";
+                    parking_table_2.item(i).style.border = "4px solid black";
+                    parking_table_2.item(i).style["margin-left"] = "2vw";
+                }
+            }
+            else {
+                park_area[1] = 0;
+                turnParkinglot_2_smaller();
+            }
+        }
+        function turnParkinglot_2_smaller() {
+            area2.style['width'] = "36%";
+            area2.style['height'] = "77%";
+            area2.style['left'] = "50vw";
+            area2.style['z-index'] = "999";
+            for (let i = 0; i < parking_table_2.length; i++) {
+                parking_table_2.item(i).style.width = "7vw";
+                parking_table_2.item(i).style.height = "7vh";
+                parking_table_2.item(i).style.border = "3px solid black";
+                parking_table_2.item(i).style["margin-left"] = "3px";
+            }
+
+        }
+        function turnParkinglot_1_smaller() {
+            area1.style['width'] = "36%";
+            area1.style['height'] = "77%";
+            area1.style['left'] = "10vw";
+            area1.style['z-index'] = "999";
+            for (let i = 0; i < parking_table_1.length; i++) {
+                parking_table_1.item(i).style.width = "7vw";
+                parking_table_1.item(i).style.height = "7vh";
+                parking_table_1.item(i).style.border = "3px solid black";
+                parking_table_1.item(i).style["margin-left"] = "3px";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어디카르고 - 작업현황</title>
+    <script src="https://kit.fontawesome.com/7328514f42.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="header">
+        <div id="header_index">
+            작업현황
+        </div>
+    </div>
+    <div id="slide">
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                SHIP LIST
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+
+        <div id="shipment">
+            <div id="ship-name">SHIP NAME</div>
+
+            <span id="out-span">
+                <span id="in-span">
+                </span>
+                <img id="ship-img" src="src/result.png" alt="Cargo Ship">
+            </span>
+
+            <!-- <div class="progress" id="shipmentStatus_1">
+                <div class="color"></div>
+            </div> -->
+            <div class="progress_status" id="progress_status_1">
+                68/72 양하
+            </div>
+            <div class="progress" id="shipmentStatus_2">
+                <div class="color"></div>
+            </div>
+            <div class="progress_status" id="progress_status_2">
+                72/199 양하
+            </div>
+            <div class="progress" id="shipmentStatus_3">
+                <div class="color"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="nav">
+        <p class="pos">
+            <label for="pos1">
+                <span type="button" class="btn btn-primary" id="PrimaryButton1"><a href="#parking">주차장현황</a></span>
+            </label>
+            <label for="pos2">
+                <span type="button" class="btn btn-primary" id="PrimaryButton2"><a href="#working">작업현황</a></span>
+            </label>
+        </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+</html>
