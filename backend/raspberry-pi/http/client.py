@@ -6,9 +6,10 @@ datas = {
     'state' : 'trucks' 
 }
 tmp = json.dumps(datas)
-url = "http://165.246.241.118:8000/account/parking/"
+url = "http://165.246.241.59:8000/account/parking/"
 
 print(type(tmp))
 response = requests.post(url, data=tmp)
 print(response.status_code)
 print(response.request.body)
+print(response.headers)

@@ -97,7 +97,7 @@ print(f"총 주차 면 : {len(parking_slot_dict)}")
 count = 0
 # 무한루프
 while cap.isOpened():
-    cap.set(cv2.CAP_PROP_POS_FRAMES, count*30)
+    cap.set(cv2.CAP_PROP_POS_FRAMES, count*10)
     ret, img = cap.read()     # 카메라로부터 현재 영상을 받아 img에 저장, 잘 받았다면 ret가 참
 
     if ret is False:
@@ -110,6 +110,8 @@ while cap.isOpened():
         cv2.imshow(f'{idx}', parking_slot_dict[idx])
 
         resp = amazon_rekognition(parking_slot_dict[idx])
+
+        judging_status_from_resp(resp)
 
         save_json(resp)
 

@@ -37,7 +37,7 @@ body{
 
 #slide {
     margin-top:10vmax;
-    height: calc(100vh - 10vmax);
+    height: calc(100vh - 25vmax);
     display: block;
     width: 100vw;
     position: absolute;
@@ -133,6 +133,13 @@ input{
 }
 
 
+.working{
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 6vmax;
+}
+
 .dropdown{
     position: relative;
     /* position: absolute; */
@@ -160,6 +167,7 @@ input{
     font-weight: bold;
     font-size: 8vmin;
     display: block;
+    z-index: 999;
 }
 
 #out-span {
@@ -199,7 +207,7 @@ input{
     bottom: 60vmin;
     display: block; 
     margin: 0px auto; 
-    z-index: 999;
+    z-index: 99;
 
 }
 
@@ -374,6 +382,13 @@ p{
     margin-left: 73%;
     font-weight: bold;
     border: 3px solid black;
+}
+
+#nav {
+    top: calc(100vh - 15vmax);
+    position: absolute;
+    height: 15vmax;
+    width: 100vw;
 }
 
 
