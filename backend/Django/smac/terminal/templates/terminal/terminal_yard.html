@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terminal_yard</title>
+</head>
+<body>
+    <div>Terminal List (truck)</div>
+        {% if terminal_yard_list %}
+            {% for terminals in terminal_yard_list %}
+            <h5>
+                {{ terminals }}
+            </h5>
+            {% endfor %}
+        {% endif %}
+</body>
+</html>
