@@ -6,45 +6,6 @@ import time
 start = time.time()  # 시작 시간 저장
 
 
-def judging_status_from_resp(resp):
-    for label_dict in resp["Labels"]:
-        if label_dict["Name"] == "Car":
-            print("Car detected!")
-            return 1
-            break
-        elif label_dict["Name"] == "Vehicle":
-            print("Vehicle detected!")
-            return 1
-            break
-        elif label_dict["Name"] == "Transportation":
-            print("Transportation detected!")
-            return 1
-            break
-        elif label_dict["Name"] == "Toy":
-            print("Toy detected!")
-            return 1
-            break
-    return 0
-
-
-def amazon_rekognition(image):
-    Rekog = boto3.client('rekognition')
-
-    h, w = image.shape[:2]
-    regImg = cv2.resize(image, (int(0.2*w), int(0.2*h)))
-    _, newjpeg = cv2.imencode('.jpg', regImg)
-    imgbytes = newjpeg.tobytes()
-
-    resp = Rekog.detect_labels(Image={'Bytes': imgbytes})
-
-    return resp
-
-
-def save_json(result_for_json):
-    with open("data.json", "w") as f:
-        json.dump(result_for_json, f)
-
-
 def roi_setting(img, idx, contour):
     mask = np.zeros_like(img, dtype='uint8')
     mask = cv2.drawContours(mask, contour, idx, (1, 1, 1), -1)
@@ -76,9 +37,8 @@ def parking_slot_detection(init_img):  # return parking_slot_dict
     parking_slot_dict = {}
 
     # 부모노드가 있는 것들만 (외곽이 아닌 것들만) 컨투어 그리기
-    # 0818 수정 : 자식 노드가 없는 것만 컨투어 그리기
     for idx, cont in enumerate(contour):
-        if hierarchy[0][idx][2] == -1:
+        if hierarchy[0][idx][2] == -1:  # -1
             cv2.drawContours(detected_slot_img, contour,
                              idx, (255, 255, 255), 5)
 
@@ -115,26 +75,17 @@ print(f"총 주차 면 : {len(parking_slot_dict)}")
 count = 0
 # 무한루프
 while cap.isOpened():
-    cap.set(cv2.CAP_PROP_POS_FRAMES, count*30)
+    cap.set(cv2.CAP_PROP_POS_FRAMES, count*10)
     ret, img = cap.read()     # 카메라로부터 현재 영상을 받아 img에 저장, 잘 받았다면 ret가 참
 
-    location_number = 0
-    result_dict = {}
+    if ret is False:
+        break
+
     for idx in parking_slot_dict:
         seprated_slot_img = roi_setting(img, idx, contour)
-
         parking_slot_dict[idx] = seprated_slot_img
 
-        # cv2.imshow(f'{idx}', parking_slot_dict[idx])
-
-        resp = amazon_rekognition(parking_slot_dict[idx])
-
-        boolean_status = judging_status_from_resp(resp)
-        result_dict[location_number] = boolean_status
-        location_number += 1
-
-    save_json(result_dict)
-    print(result_dict)
+        cv2.imshow(f'{idx}', parking_slot_dict[idx])
 
     cv2.imshow('result', img)
 

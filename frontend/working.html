@@ -13,70 +13,179 @@
 </head>
 
 <body>
-    <div id="header">
-        <div id="header_index">
-            작업현황
+    <div class="page">
+        <header tabindex="0"><span id="header_index">작업현황</span></header>
+
+        <!-- https://codepen.io/dannievinther/pen/NvZjvz -->
+        <div id="nav-container">
+            <div class="bg"></div>
+            <div id="nav-button" tabindex="0">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+            <div id="nav-content" tabindex="0">
+                <ul>
+                    <li>
+                        <a href="#0">주차장 현황</a>
+                        <ul>
+                            <li><a href="#0">화물차 주자장</a></li>
+                            <li><a href="#0">승용차 주차장</a></li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="#0">작업 현황</a>
+                        <ul>
+                            <li><a href="#0">본선 작업</a></li>
+                            <li><a href="#0">야드 작업</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="small"><a target="blank" href="https://lab.hanium.or.kr/21_HP048/21_hp048">21_HP048
+                            GitLab</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div id="slide">
-        <div class = "working">
-            <label><input type="radio" name="working" value="본선현황" checked>본선현황</label>
-            <label><input type="radio" name="working" value="야드현황">야드현황</label>
-        </div>
+        <div id="main">
+            <!-- https://codepen.io/miniven/pen/ZJydge -->
+            <div class="select-box">
+                <div class="select-box__current" tabindex="1">
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="0" value="1" name="Ben" checked="checked" />
+                        <p class="select-box__input-text">Ship Name 1</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="1" value="2" name="Ben" />
+                        <p class="select-box__input-text">Ship Name 2</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="2" value="3" name="Ben" />
+                        <p class="select-box__input-text">Ship Name 3</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="3" value="4" name="Ben" />
+                        <p class="select-box__input-text">Ship Name 4</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="4" value="5" name="Ben" />
+                        <p class="select-box__input-text">Ship Name 5</p>
+                    </div><img class="select-box__icon" src="src/downarrow.svg" alt="Arrow Icon" aria-hidden="true" />
+                </div>
+                <ul class="select-box__list">
+                    <li>
+                        <label class="select-box__option" for="0" aria-hidden="aria-hidden">Ship Name 1</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="1" aria-hidden="aria-hidden">Ship Name 2</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="2" aria-hidden="aria-hidden">Ship Name 3</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="3" aria-hidden="aria-hidden">Ship Name 4</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="4" aria-hidden="aria-hidden">Ship Name 5</label>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                SHIP LIST
-            </a>
-
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
-
-        <div id="shipment">
-            <div id="ship-name">SHIP NAME</div>
-
-            <span id="out-span">
-                <span id="in-span">
+            <div id="shipment">
+                <span id="out-span">
+                    <span id="in-span">
+                    </span>
+                    <img id="ship-img" src="src/result.png" alt="Cargo Ship">
                 </span>
-                <img id="ship-img" src="src/result.png" alt="Cargo Ship">
-            </span>
 
-            <!-- <div class="progress" id="shipmentStatus_1">
-                <div class="color"></div>
-            </div> -->
-            <div class="progress_status" id="progress_status_1">
-                68/72 양하
-            </div>
-            <div class="progress" id="shipmentStatus_2">
-                <div class="color"></div>
-            </div>
-            <div class="progress_status" id="progress_status_2">
-                72/199 양하
-            </div>
-            <div class="progress" id="shipmentStatus_3">
-                <div class="color"></div>
+                <div class = "detail">
+                    <div id="schedule-info">
+                        <ul>
+                            <li>
+                                입항
+                                <ul>
+                                    <li>2021-01-25 03:08</li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                출항
+                                <ul>
+                                    <li>2021-01-27 12:19</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="work-info">
+                        <h6>작업수</h6>
+                        <div id="loading-info">
+                            <div class="loading">
+                                양하
+                                <p id="total-loading-amount">72</p>
+                            </div>
+                            <div class="unloading">
+                                적하
+                                <p id="total-unloading-amount">199</p>
+                            </div>
+                        </div>
+                        <div id="amount-info">
+                            <div class="loading">
+                                <ul>
+                                    <li>
+                                        완료
+                                        <ul>
+                                            <li>68</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        잔여
+                                        <ul>
+                                            <li>4</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="unloading">
+                                <ul>
+                                    <li>
+                                        완료
+                                        <ul>
+                                            <li>72</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        잔여
+                                        <ul>
+                                            <li>27</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+    
+                    <div class="progress_status" id="progress_status_1">
+                        68/72 양하
+                    </div>
+                    
+                    <div class="progress_status" id="progress_status_2">
+                        72/199 양하
+                    </div>
+                   
+
+                </div>
+                
             </div>
         </div>
     </div>
 
-    <div id="nav">
-        <p class="pos">
-            <label for="pos1">
-                <span type="button" class="btn btn-primary" id="PrimaryButton1"><a href="#parking">주차장현황</a></span>
-            </label>
-            <label for="pos2">
-                <span type="button" class="btn btn-primary" id="PrimaryButton2"><a href="#working">작업현황</a></span>
-            </label>
-        </p>
-    </div>
+    <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 </html>
