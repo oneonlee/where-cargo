@@ -5,14 +5,16 @@ import cv2
 import numpy as np
 from core.config import cfg
 
-MODEL_PATH = './checkpoints/yolov4-416'
+MODEL_PATH = './checkpoints/yolov4-tiny-416'
 IOU_THRESHOLD = 0.45
 SCORE_THRESHOLD = 0.25
 INPUT_SIZE = 416
 
 # load model
-saved_model_loaded = tf.saved_model.load(MODEL_PATH, tags=[tag_constants.SERVING])
+saved_model_loaded = tf.saved_model.load(
+    MODEL_PATH, tags=[tag_constants.SERVING])
 infer = saved_model_loaded.signatures['serving_default']
+
 
 def detect(img, detected_obj_list):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -38,9 +40,11 @@ def detect(img, detected_obj_list):
         score_threshold=SCORE_THRESHOLD
     )
 
-    pred_bbox = [boxes.numpy(), scores.numpy(), classes.numpy(), valid_detections.numpy()]
+    pred_bbox = [boxes.numpy(), scores.numpy(), classes.numpy(),
+                 valid_detections.numpy()]
     detected_obj_list = []
-    result, detected_obj_list = utils.draw_bbox(detected_obj_list, img, pred_bbox)
+    result, detected_obj_list = utils.draw_bbox(
+        detected_obj_list, img, pred_bbox)
 
     result = cv2.cvtColor(np.array(result), cv2.COLOR_RGB2BGR)
     # cv2.imshow('result.png', result)

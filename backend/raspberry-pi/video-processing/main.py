@@ -1,32 +1,66 @@
+from functions import *
+
 import cv2
-import numpy as np
-import json
-import time
+import detect_simple as detect
+from http_client import http_client
 
-def parking_slot_detection(): # 주차영역을 탐지하여 좌표를 반환
-    print("WOW")
+URL = "http://158.247.202.164:8000/result/"
 
-def region_of_interest(): # 탐지한 좌표를 바탕으로 관심영역을 설정하고, 관심영역 좌표를 반환
-    print("WOW")
 
-def car_detection(): # 영상에서 차를 탐지하고 차의 유무를 반환
-    print("WOW")
+# cap = cv2.VideoCapture("data/test3.mov")
+cap = cv2.VideoCapture(0)
+ret, img = cap.read()     # 카메라로부터 현재 영상을 받아 img에 저장, 잘 받았다면 ret가 참
 
-def making_dict(): # 결과를 바탕으로 dict를 만드는 함수
-    print("WOW")
+init_img_capture(img)
 
-    # result_dict example :
+init_img = cv2.imread('init.png')
+parking_slot_dict, contour = parking_slot_detection(init_img)
+print(f"총 주차 면 : {len(parking_slot_dict)}")
 
-def update_json(result_dict): # result_dict를 입력받아 JSON 파일로 저장
-    with open("data.json", "w") as f:
-        json.dump(result_dict, f)
+count = 0
+CONTINOUS_VALUE = 3
+continous_info = [CONTINOUS_VALUE +
+                  1 for i in range(len(parking_slot_dict))]
 
-cap = cv2.VideoCapture(0) # 동영상 불러오기
+# 무한루프
+while cap.isOpened():
+    cap.set(cv2.CAP_PROP_POS_FRAMES, count*70)
+    ret, img = cap.read()     # 카메라로부터 현재 영상을 받아 img에 저장, 잘 받았다면 ret가 참
 
-while True:
-    ret, image = cap.read()
+    if ret is False:
+        break
 
-    cv2.imshow('results',image) # 이미지 출력
+    detected_obj_list = []
+
+    detected_result_dict = {}
+    for key in range(len(parking_slot_dict)):
+        detected_result_dict[key] = 0
+    i = 0
+    for idx in parking_slot_dict:
+        seprated_slot_img = roi_setting(img, idx, contour)
+        parking_slot_dict[idx] = seprated_slot_img
+
+        cv2.imshow(f'{idx}', parking_slot_dict[idx])
+        detected_obj_list = detect.detect(
+            parking_slot_dict[idx], detected_obj_list)
+
+        if len(detected_obj_list) > 0:
+            detected_result_dict[i] = 1
+            print(detected_obj_list)
+
+        i += 1
+
+    result_dict_for_json = judging_continous(
+        CONTINOUS_VALUE, detected_result_dict, continous_info)
+    print(result_dict_for_json)
+    http_client(result_dict_for_json, URL)
+
+    cv2.imshow('result', img)
+
+    count += 1
 
     if cv2.waitKey(1) == ord('q'):
         break
+
+cap.release()                       # 캡처 객체를 없애줌
+cv2.destroyAllWindows()             # 모든 영상 창을 닫아줌
