@@ -518,12 +518,22 @@ input {
   width: 50%;
 }
 
+.truck-section,
+.car-section {
+  display: inline;
+  position: relative;
+}
+
+.board {
+  height: 20vh;
+}
+
 #square {
   padding: 3px;
   width: 10%;
   background-color: rgb(0, 68, 255);
 }
-p {
+#square p {
   margin-top: -50vh;
 }
 
