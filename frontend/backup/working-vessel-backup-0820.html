@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어디카르고 - 작업현황</title>
+    <script src="https://kit.fontawesome.com/7328514f42.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page">
+        <header tabindex="0"><span id="header_index">작업현황</span></header>
+
+        <!-- https://codepen.io/dannievinther/pen/NvZjvz -->
+        <div id="nav-container">
+            <div class="bg"></div>
+            <div id="nav-button" tabindex="0">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+            <div id="nav-content" tabindex="0">
+                <ul>
+                    <li>
+                        <a href="#0">주차장 현황</a>
+                        <ul>
+                            <li><a href="#0">화물차 주자장</a></li>
+                            <li><a href="#0">승용차 주차장</a></li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="#0">작업 현황</a>
+                        <ul>
+                            <li><a href="#0">본선 작업</a></li>
+                            <li><a href="#0">야드 작업</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="small"><a target="blank" href="https://lab.hanium.or.kr/21_HP048/21_hp048">21_HP048
+                            GitLab</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <!-- https://codepen.io/miniven/pen/ZJydge -->
+            <div class="select-box">
+                <div class="select-box__current" tabindex="1">
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="0" value="1" name="Ben" checked="checked" />
+                        <p class="select-box__input-text">Ship Name 1</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="1" value="2" name="Ben" />
+                        <p class="select-box__input-text">Ship Name 2</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="2" value="3" name="Ben" />
+                        <p class="select-box__input-text">Ship Name 3</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="3" value="4" name="Ben" />
+                        <p class="select-box__input-text">Ship Name 4</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" id="4" value="5" name="Ben" />
+                        <p class="select-box__input-text">Ship Name 5</p>
+                    </div><img class="select-box__icon" src="src/downarrow.svg" alt="Arrow Icon" aria-hidden="true" />
+                </div>
+                <ul class="select-box__list">
+                    <li>
+                        <label class="select-box__option" for="0" aria-hidden="aria-hidden">Ship Name 1</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="1" aria-hidden="aria-hidden">Ship Name 2</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="2" aria-hidden="aria-hidden">Ship Name 3</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="3" aria-hidden="aria-hidden">Ship Name 4</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="4" aria-hidden="aria-hidden">Ship Name 5</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="shipment">
+                <span id="out-span">
+                    <span id="in-span">
+                    </span>
+                    <img id="ship-img" src="src/result.png" alt="Cargo Ship">
+                </span>
+
+                <div class="detail">
+                    <div id="schedule-info">
+                        <dl class="left"> 
+                            <dt>입항</dt>
+                            <dd>
+                                <time datetime="2021-01-25">2021-01-25</time><br><time datetime="03:08">03:08</time>
+                            </dd>
+                        </dl>
+                        <dl class="right">
+                            <dt>출항</dt>
+                            <dd><time datetime="2021-01-27">2021-01-27</time><br><time datetime="12:19">12:19</time>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div id="work-info">
+                        <h6>작업수</h6>
+                        <div class="loading-info">
+                            <div class="loading">
+                                양하<br>
+                                72
+                                <!-- <p id="total-loading-amount">72</p> -->
+                                <ul>
+                                    <li>
+                                        완료
+                                        <ul>
+                                            <li>68</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        잔여
+                                        <ul>
+                                            <li>4</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="unloading">
+                                적하<br>
+                                199
+                                <!-- <p id="total-unloading-amount">199</p> -->
+                                <ul>
+                                    <li>
+                                        완료
+                                        <ul>
+                                            <li>72</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        잔여
+                                        <ul>
+                                            <li>27</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="amount-info">
+                            <div class="loading">
+                                
+                            </div>
+                            <div class="unloading">
+                    
+                            </div>
+                        </div>
+                    </div>
+
+
+<!-- 
+                    <div class="progress_status" id="progress_status_1">
+                        68/72 양하
+                    </div>
+
+                    <div class="progress_status" id="progress_status_2">
+                        72/199 양하
+                    </div> -->
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
