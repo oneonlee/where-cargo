@@ -197,7 +197,7 @@ header {
   background: rbg(200, 200, 200);
 }
 #parkSlide li:nth-child(1) {
-  top: 11%;
+  top: 0%;
   padding: 0vw;
   background: rgb(200, 200, 200);
 }
@@ -255,14 +255,17 @@ input {
 }
 
 #parkinglot_button_1 {
-  position: absolute;
+  position: relative;
   margin-left: 10vw;
-  margin-top: -80vh;
+  width: 19vw;
+  font-size: 4vw;
 }
 #parkinglot_button_2 {
-  position: absolute;
-  margin-left: 30vw;
-  margin-top: -80vh;
+  position: relative;
+  margin-left: 1vw;
+  margin-top: 3vh;
+  width: 19vw;
+  font-size: 4vw;
 }
 
 .working {
@@ -601,29 +604,29 @@ input {
   border: 2px solid;
 }
 #first_status {
-  top: 80vh;
+  top: 70vh;
   left: 25vw;
 }
 #second_status {
-  top: 80vh;
+  top: 70vh;
   left: 60vw;
 }
 #third_status {
-  top: 86vh;
+  top: 77vh;
   left: 60vw;
 }
 #first_status_icon {
   background-color: #bac3c6;
-  top: 80vh;
+  top: 70vh;
   left: 16vw;
 }
 #second_status_icon {
-  top: 80vh;
+  top: 70vh;
   left: 51vw;
   background-color: #a95654;
 }
 #third_status_icon {
-  top: 86vh;
+  top: 77vh;
   left: 51vw;
   background-color: rgb(70, 102, 178);
 }
