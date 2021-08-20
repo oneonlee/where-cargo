@@ -1,0 +1,455 @@
+/* commit test second */
+
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  /* background-color:#f4f4f4; */
+  font-family: "Encode Sans Condensed", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  /* color: #212121; */
+}
+
+.btn-primary {
+  color: #000;
+  background-color: #e5e5e5;
+  border-color: #0d6efd;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  background-color: #464dae;
+
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#header_index {
+  position: absolute;
+  margin-top: 0.8vh;
+  /* padding-top: 1vmax; */
+  /* margin-bottom: 1vh; */
+
+  text-align: center;
+  width: inherit;
+  height: 10vh;
+  line-height: 10vh;
+
+  font-size: 5vh;
+  font-weight: 400;
+  color: white;
+}
+
+#nav-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+#nav-container .bg {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 10vh);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  background: #000;
+}
+#nav-container:focus-within .bg {
+  visibility: visible;
+  opacity: 0.6;
+}
+#nav-container * {
+  visibility: visible;
+}
+
+#nav-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  height: 10vh;
+  width: 30px;
+  cursor: pointer;
+  pointer-events: auto;
+  margin-left: 7vw;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.icon-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  transition: 0.3s;
+}
+.icon-bar + .icon-bar {
+  margin-top: 5px;
+}
+
+#nav-container:focus-within #nav-button {
+  pointer-events: none;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(1) {
+  transform: translate3d(0, 8px, 0) rotate(45deg);
+}
+#nav-container:focus-within .icon-bar:nth-of-type(2) {
+  opacity: 0;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(3) {
+  transform: translate3d(0, -8px, 0) rotate(-45deg);
+}
+
+#nav-content {
+  margin-top: 10vh;
+  padding: 20px;
+  width: 90%;
+  max-width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% - 10vh);
+  background: #ececec;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+  will-change: transform;
+  contain: paint;
+}
+
+#nav-content ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#nav-content li a {
+  padding: 10px 5px;
+  display: block;
+  /* text-transform: uppercase; */
+  transition: color 0.1s;
+  text-decoration: none;
+  font-size: 3.5vh;
+  /* color: black; */
+  color: #212121;
+}
+
+#nav-content li a:hover {
+  color: #bf7497;
+}
+
+#nav-content li:not(.small) + .small {
+  margin-top: auto;
+}
+
+#nav-content .small {
+  display: flex;
+  align-self: center;
+  padding-right: 4vh;
+}
+
+#nav-content .small a {
+  font-size: 2vh;
+  font-weight: 400;
+  color: #888;
+}
+/* #nav-content .small a + a { } */
+
+#nav-container:focus-within #nav-content {
+  transform: none;
+}
+
+#main {
+  margin-top: 10vh;
+  height: 100%;
+  display: block;
+  width: 100vw;
+  position: absolute;
+  background-color: rgb(244, 244, 244);
+  overflow: hidden;
+}
+
+.select-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Open Sans", "Helvetica Neue", "Segoe UI", "Calibri", "Arial",
+    sans-serif;
+  font-size: 2vh;
+  color: #60666d;
+  z-index: 998;
+  overflow: visible;
+}
+@media (min-width: 768px) {
+  .select-box {
+    width: 70%;
+  }
+}
+@media (min-width: 992px) {
+  .select-box {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .select-box {
+    width: 30%;
+  }
+}
+.select-box__current {
+  position: relative;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  outline: none;
+}
+.select-box__current:focus + .select-box__list {
+  opacity: 1;
+  animation-name: none;
+}
+.select-box__current:focus + .select-box__list .select-box__option {
+  cursor: pointer;
+}
+.select-box__current:focus .select-box__icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+.select-box__icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 20px;
+  opacity: 0.3;
+  transition: 0.2s ease;
+}
+.select-box__value {
+  display: flex;
+}
+.select-box__input {
+  display: none;
+}
+.select-box__input:checked + .select-box__input-text {
+  display: block;
+}
+.select-box__input-text {
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 2vmax;
+  background-color: #fff;
+}
+.select-box__list {
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  animation-name: HideList;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: step-start;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+.select-box__option {
+  display: block;
+  padding: 2vmax;
+  background-color: #fff;
+}
+.select-box__option:hover,
+.select-box__option:focus {
+  color: #546c84;
+  background-color: #fbfbfb;
+}
+@keyframes HideList {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
+  }
+}
+
+#section-name {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  text-align: center;
+  font-size: 4vh;
+}
+
+#refresh-button {
+  border-style: none;
+  position: relative;
+  left: 15vw;
+  background-color: rgb(244, 244, 244);
+  margin-bottom: 3vmax;
+}
+
+.parking-lot {
+  height: 60vh;
+}
+#main li:nth-child(1) {
+  background: rbg(200, 200, 200);
+}
+
+#main li:nth-child(2) {
+  background: rbg(200, 200, 200);
+}
+#parkSlide li:nth-child(1) {
+  top: 0%;
+  padding: 0vw;
+  background: rgb(200, 200, 200);
+}
+#parkSlide li:nth-child(2) {
+  left: 50vw;
+  padding: 0vw;
+  background: rgb(200, 200, 200);
+}
+
+#slideUl,
+.slideLi {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#parkSlide,
+.park {
+  list-style: none;
+  transition: 1s;
+}
+
+.slideLi {
+  float: left;
+  width: 25%;
+  height: 100%;
+}
+.park {
+  display: inline-block;
+  /* position: absolute; */
+  padding: 5vw;
+  width: 80vw;
+  left: 8vw;
+}
+
+#slideUl {
+  width: 400%;
+  height: 100%;
+  transition: 1s;
+}
+
+#parkSlide {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+  transition: 1s;
+  overflow: visible;
+}
+
+input {
+  display: none;
+}
+
+#park_pos {
+  margin-left: 10vw;
+}
+#parkinglot_button_1 {
+  position: relative;
+  width: 20vmin;
+  max-width: 100px;
+  height: 12vmin;
+  max-height: 60px;
+  font-size: 2.5vh;
+  margin: 3vmin 1.5vmin 1vmin 1.5vmin;
+}
+#parkinglot_button_2 {
+  position: relative;
+  width: 20vmin;
+  max-width: 100px;
+  height: 12vmin;
+  max-height: 60px;
+  margin: 3vmin 1.5vmin 1vmin 1.5vmin;
+  font-size: 2.5vh;
+}
+.parktable_1 {
+  display: inline-block;
+  border: 4px solid black;
+  width: 15vw;
+  height: 15vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: 2vw;
+}
+
+.parkarea_under {
+  margin-top: 22vh;
+}
+
+.parking-lot-status {
+  height: 30vh;
+  display: block;
+  margin-top: 5vh;
+}
+.park_status {
+  /* position: absolute; */
+  border-radius: 3px;
+  /* background: rgb(200, 200, 200); */
+  display: block;
+}
+.park_status_icon {
+  position: absolute;
+  width: 6vw;
+  border-radius: 3px;
+  display: block;
+  border: 2px solid;
+  margin: 2 2 2 2;
+}
+#first_status {
+  /* left: 25vw; */
+  display: inline-block;
+  margin-left: 7vw;
+}
+#second_status {
+  /* left: 60vw; */
+  display: inline-block;
+  margin-left: 7vw;
+}
+
+#first_status_icon {
+  /* left: 16vw; */
+  display: inline-block;
+}
+#second_status_icon {
+  /* left: 51vw; */
+  display: inline-block;
+}
+#empty-status {
+  display: inline-block;
+  position: absolute;
+  left: 15vw;
+}
+#truck-status {
+  display: inline-block;
+  position: absolute;
+  right: 15vw;
+}
