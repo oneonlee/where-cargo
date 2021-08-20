@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--git test-->
+<!-- git second test -->
 
 <head>
     <meta charset="UTF-8">
@@ -49,9 +51,32 @@
         </div>
 
         <div id="main">
-            
-
-                
+                <input type="radio" name="pos" id="pos1" checked>
+                <input type="radio" name="pos" id="pos2">
+                <p class="park_pos" style="margin-bottom: 0;">
+                    <label for="parklot_1">
+                        <span type="button" class="btn btn-primary" id="parkinglot_button_1"
+                            onclick="turnParkinglot_1();">구역1</span>
+                    </label>
+                    <label for="parklot_2">
+                        <span type="button" class="btn btn-primary" id="parkinglot_button_2"
+                            onclick="turnParkinglot_2();">구역2</span>
+                    </label>
+                </p>
+                        <ul id="parkSlide">
+                            <li class="park" id="area1" onclick="turnParkinglot_1();">
+                                <div class="parktable_1">1</div>
+                                <div class="parktable_1">2</div>
+                                <div class="parktable_1">3</div>
+                                <div class="parktable_1">4</div>
+                            </li>
+                            <div class="park_status" id="first_status">주차가능</div>
+                            <div class="park_status" id="second_status">주차중(화물차)</div>
+                            <div class="park_status" id="third_status">주차중(승용차)</div>
+                            <div class="park_status_icon" id="first_status_icon">ㅤ</div>
+                            <div class="park_status_icon" id="second_status_icon">ㅤ</div>
+                            <div class="park_status_icon" id="third_status_icon">ㅤ</div>
+                        </ul>
         </div>
     </div>
 

@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="parking-style.css">
 </head>
 
 <body>
@@ -54,9 +55,13 @@
                 <span class="truck-section">여유</span>
                 <div class="board">
                     <p>이용가능</p>
-                    <p>3면 / 8면</p>
-                    <button>자세히보기</button>
-                    <button><time class = "js-clock clock">00:00</time>새로고침</button>
+                    <div style="height: 50%; padding: 7%;">
+                        <h1>3면 / 8면</h1>
+                    </div>
+                    <div class="board-menu">
+                        <button>자세히보기</button>
+                        <button id="menu-clock"><time id="js-clock1">00:00</time> 기준</button>
+                    </div>
                 </div>
 
             </div>
@@ -68,7 +73,7 @@
                     <p>이용가능</p>
                     <p>3면 / 8면</p>
                     <button>자세히보기</button>
-                    <button><time class = "js-clock clock">00:00</time>새로고침</button>
+                    <button><time id="js-clock2">00:00</time> 기준</button>
                 </div>
             </div>
         </div>

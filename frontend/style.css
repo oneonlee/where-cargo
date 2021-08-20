@@ -1,3 +1,5 @@
+/* commit test second */
+
 * {
   margin: 0;
   padding: 0;
@@ -195,7 +197,7 @@ header {
   background: rbg(200, 200, 200);
 }
 #parkSlide li:nth-child(1) {
-  left: 10vw;
+  top: 0%;
   padding: 0vw;
   background: rgb(200, 200, 200);
 }
@@ -227,8 +229,9 @@ header {
   position: absolute;
   margin: 3vw;
   padding: 5vw;
-  width: 36%;
-  height: 77%;
+  width: 80vw;
+  height: 80%;
+  left: 8vw;
 }
 
 #slideUl {
@@ -240,11 +243,11 @@ header {
 #parkSlide {
   position: relative;
   text-align: center;
-  margin-top: 20vh;
   width: 100%;
-  height: 50%;
+  height: 79%;
   padding: 0%;
   transition: 1s;
+  overflow: visible;
 }
 
 input {
@@ -252,14 +255,17 @@ input {
 }
 
 #parkinglot_button_1 {
-  position: absolute;
+  position: relative;
   margin-left: 10vw;
-  margin-top: -10vh;
+  width: 19vw;
+  font-size: 4vw;
 }
 #parkinglot_button_2 {
-  position: absolute;
-  margin-left: 30vw;
-  margin-top: -10vh;
+  position: relative;
+  margin-left: 1vw;
+  margin-top: 3vh;
+  width: 19vw;
+  font-size: 4vw;
 }
 
 .working {
@@ -550,15 +556,13 @@ p {
   text-align: center;
 }
 .parktable_1 {
-  transition: 1s;
   position: relative;
   display: inline-block;
-  border: 3px solid black;
-  width: 7vw;
-  height: 7vh;
+  border: 4px solid black;
+  width: 15vw;
+  height: 15vh;
   margin-top: 2vh;
-  transition: 1s;
-  margin-left: 3px;
+  margin-left: 2vw;
 }
 .parktable_2 {
   transition: 1s;
@@ -590,29 +594,29 @@ p {
   border: 2px solid;
 }
 #first_status {
-  top: 60vh;
+  top: 70vh;
   left: 25vw;
 }
 #second_status {
-  top: 60vh;
+  top: 70vh;
   left: 60vw;
 }
 #third_status {
-  top: 64vh;
+  top: 77vh;
   left: 60vw;
 }
 #first_status_icon {
   background-color: #bac3c6;
-  top: 60vh;
+  top: 70vh;
   left: 16vw;
 }
 #second_status_icon {
-  top: 60vh;
+  top: 70vh;
   left: 51vw;
   background-color: #a95654;
 }
 #third_status_icon {
-  top: 64vh;
+  top: 77vh;
   left: 51vw;
   background-color: rgb(70, 102, 178);
 }
