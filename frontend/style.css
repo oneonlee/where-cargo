@@ -257,12 +257,12 @@ input {
 #parkinglot_button_1 {
   position: absolute;
   margin-left: 10vw;
-  margin-top: -30vh;
+  margin-top: -80vh;
 }
 #parkinglot_button_2 {
   position: absolute;
   margin-left: 30vw;
-  margin-top: -30vh;
+  margin-top: -80vh;
 }
 
 .working {
