@@ -529,9 +529,6 @@ input {
   width: 10%;
   background-color: rgb(0, 68, 255);
 }
-p {
-  margin-top: -50vh;
-}
 
 .my-form {
   text-align: left;
