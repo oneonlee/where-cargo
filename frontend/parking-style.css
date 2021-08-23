@@ -1,29 +1,33 @@
+* {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
 .board {
-    width: 73vw;
-    height: 23vh;
-    border: 2px solid gray;
-    padding: 2%;
-    margin: 0 auto;
+  width: 73vw;
+  height: 23vh;
+  border: 2px solid gray;
+  padding: 2%;
+  margin: 0 auto;
 }
-.board p{
-    margin: 0;
-    text-align: center;
+.board p {
+  margin: 0;
+  text-align: center;
 }
-.board div h1{
-    font-weight: bold;
-    text-align: center;
-    font-size: calc(1.375rem + 5.5vw);
+.board div h1 {
+  font-weight: bold;
+  text-align: center;
+  font-size: calc(1.375rem + 5.5vw);
 }
-.board-menu{
-    bottom: 0px;
-    position: relative;
-    margin: 5%;
-    margin-top: 9%;
+.board-menu {
+  bottom: 0px;
+  position: relative;
+  margin: 5%;
+  margin-top: 9%;
 }
-.board-menu button{
-    border-style: none;
+.board-menu button {
+  border-style: none;
 }
-#menu-clock{
-    position: relative;
-    left: 25%;
+#menu-clock {
+  position: relative;
+  left: 25%;
 }
