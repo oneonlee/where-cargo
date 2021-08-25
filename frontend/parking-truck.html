@@ -6,6 +6,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- PWA화, 여기부터 -->
+  <!-- [iOS 사파리에 대응] -->
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <meta name="apple-mobile-web-app-title" content="어디카르고">
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <link rel="apple-touch-icon" href="src/logo.ico/apple-icon-152x152.png">
+
+ <!-- [Android와 PC, 크롬·엣지에 대응] -->
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" href="manifest.json">
+    <!-- 서비스 워커를 등록 -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('js/sw.js')
+        .then((reg) => {
+          console.log('서비스 워커가 등록됨.', reg);
+        });
+      }
+    </script>
+<!-- PWA화, 여기까지 -->
+
+
     <title>어디카르고 - 주차장 현황</title>
     <script src="https://kit.fontawesome.com/7328514f42.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
