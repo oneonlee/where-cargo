@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import json
 
 
 def judging_continous(CONTINOUS_VALUE, detected_result_dict, continous_info):
