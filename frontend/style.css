@@ -179,7 +179,6 @@ header {
   width: 100vw;
   position: absolute;
   background-color: rgb(244, 244, 244);
-  overflow: hidden;
 }
 
 #main li:nth-child(1) {
