@@ -1,4 +1,4 @@
-# 영상분석 방식을 통한 실시간 주차현황 확인 및 스마트 항만 주차정보시스템 구현
+# 영상분석 방식을 통한 스마트 항만 주차정보시스템 구현
 
 ## <center>요약</center>
 
@@ -33,7 +33,7 @@
 
 전처리 과정을 거친 후, 대표적인 에지 검출 알고리즘인 Canny Edge Detection 알고리즘을 사용하여 경계선을 검출한다.
 
-검출한 경계선을 모폴로지 연산(mprphological operation) 중 팽창(dilation) 기법을 적용하여 이미지를 팽창시키고, 이진화(binary) 시켜줌으로써 잡음을 제거하고 주차선의 구분을 명확하게 한다.
+검출한 경계선을 모폴로지 연산(morphological operation) 중 팽창(dilation) 기법을 적용하여 이미지를 팽창시키고, 이진화(binary) 시켜줌으로써 잡음을 제거하고 주차선의 구분을 명확하게 한다.
 
 그 후, 영상의 모든 외곽선(contour)의 정보와 외곽선의 상하구조(hierachy)를 트리(tree) 계층으로 수집한다. 트리 계층의 상하구조에서 자식 노드(node)가 없는 것들만 외곽선을 나타냄으로서 주차면을 뽑아내고, 해당 영역들을 관심영역(ROI)으로 설정한다.
 
@@ -50,37 +50,49 @@
 
 **[그림 1]에서 확인할 수 있듯이** YOLOv4가 모든 차량에 대해 class를 정확하게 'car'라고 예측한 것을 확인할 수 있다. 예측한 class에 대한 신뢰도 및 확률을 나타내는 confidence score의 평균은 0.74로 YOLOv4가 적절한 정확도를 가진다는 것을 확인할 수 있다.
 
-### 4. 웹 페이지 및 서버 구성
-
-서버는 vultr의 호스팅 서비스를 이용해서 구현하였다. 운영체제는 우분투(ubuntu) 20.04를 이용했다. 웹 서버 구현을 위해서 nginx, 파이썬(python)의 장고(django), mariaDB를 사용했고, 효율적인 유지 보수를 위해서 도커시스템을 사용했다. **유저**가 한번 접속해서 오래 사용하는 방식이 아닌, 짧은 접속을 자주하는 웹 페이지이기 때문에, 새로 고침을 통해 새로운 정보를 조회 할 수 있고 최초 접속속도가 빠른 http 통신 방식으로 웹 페이지를 조회할 수 있도록 하였다. http 통신 과정에서의 기본적인 보안 시스템은 장고에서 제공되는 라이브러리들을 사용하였다.
-
-![그림 2](https://raw.githubusercontent.com/oneonlee/where-cargo/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%EA%B5%AC%EC%84%B1%EB%8F%84%3A%ED%9D%90%EB%A6%84%EB%8F%84/%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B5%AC%EC%84%B1%EB%8F%84.jpg)
-
-<center>[그림 2] 서비스 구성도</center>
-<br>
-
-![그림 3](https://raw.githubusercontent.com/oneonlee/where-cargo/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%EA%B5%AC%EC%84%B1%EB%8F%84%3A%ED%9D%90%EB%A6%84%EB%8F%84/%EC%84%9C%EB%B9%84%EC%8A%A4%20%ED%9D%90%EB%A6%84%EB%8F%84.jpg)
-
-<center>[그림 3] 서비스 흐름도</center>
-<br>
-
 ---
 
 ## <center><strong>III. 실험</strong></center>
 
+![그림 2](https://raw.githubusercontent.com/oneonlee/where-cargo/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%EA%B5%AC%EC%84%B1%EB%8F%84%3A%ED%9D%90%EB%A6%84%EB%8F%84/%E1%84%89%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%A6%E1%86%B7%20%E1%84%92%E1%85%B3%E1%84%85%E1%85%B3%E1%86%B7%E1%84%83%E1%85%A9.jpg)
+
+<center>[그림 2] 시스템 흐름도</center>
+<br>
+
+본 논문에서 설계한 스마트 주차정보시스템은 카메라 클라이언트와 서버, 두 부분으로 나눌 수 있다. 카메라 클라이언트는 카메라로 주차장의 정보를 수집하고, 주차장의 현황을 딥 러닝을 기반으로 실시간 분석하여 전달하는 역할을 한다. 서버는 전달받은 데이터를 적절히 가공하여 웹 페이지 상에 나타내는 기능을 한다. 전체적인 시스템 구성도는 아래 [그림 3]과 같다.
+
+![그림 3](https://raw.githubusercontent.com/oneonlee/where-cargo/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%EA%B5%AC%EC%84%B1%EB%8F%84%3A%ED%9D%90%EB%A6%84%EB%8F%84/%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B5%AC%EC%84%B1%EB%8F%84.jpg)
+
+<center>[그림 3] 시스템 구성도</center>
+<br>
+
 실험을 위하여, 아래 [그림 4]와 같이 모의 주차장을 제작하였다. 차량은 모형 자동차로 대체하였다.
 
-![그림 4](https://github.com/oneonlee/where-cargo/blob/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%E1%84%8C%E1%85%A1%E1%86%BC2.png?raw=true)
+<!-- ![그림 4](https://github.com/oneonlee/where-cargo/blob/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%E1%84%8C%E1%85%A1%E1%86%BC2.png?raw=true) -->
+
+![그림 4](https://github.com/oneonlee/where-cargo/blob/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%E1%84%8C%E1%85%A1%E1%86%BC4.png?raw=true)
 
 <center>[그림 4] 모의 주차장</center>
 <br>
 
-[그림 4]와 같이 주차장에 차량이 주차되어 있을 때 카메라 클라이언트에서 차량 유무를 각 주차면마다 분석하고, 분석 데이터를 웹 서버로 보내어 [그림 5]와 같이 **웹 페이지에** 나타낸다.
+주차장을 분석하는 카메라 클라이언트는 파이썬(python)을 통하여 구현하였다. 주차장 영상을 처리하기 위해서는 실시간 영상 처리 및 컴퓨터 비전(computer vision)을 목적으로 개발된 라이브러리인 OpenCV(Open Source Computer Vision)를 사용하였다. 아래 [그림 5]은 cv2.Canny 함수와 cv2.findContours 등 OpenCV가 제공하는 다양한 함수들을 사용하여 주차면을 검출한 결과이다.
 
-![그림 5](https://github.com/oneonlee/where-cargo/blob/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%E1%84%8B%E1%85%B0%E1%86%B8.png?raw=true)
+![그림 5](https://user-images.githubusercontent.com/73745836/125752557-34db0751-6fd3-49fc-bfa2-4ac17ee93143.png)
 
-<center>[그림 5] 주차장 현황 안내 웹 페이지</center>
+<center>[그림 5] 모의 주차장</center>
 <br>
+
+TensorFlow와 YOLOv4로 차량을 검출한 결과를 requests 모듈을 통해 서버로 전송하였다. requests는 파이썬에서 HTTP(HyperText Transfer Protocol) 요청을 보내는 모듈이다.
+
+서버는 vultr의 호스팅 서비스를 이용해서 구현하였다. 운영체제는 우분투(ubuntu) 20.04를 이용했다. 웹 서버 구현을 위해서 nginx, 파이썬(python)의 장고(django), mariaDB를 사용했고, 효율적인 유지 보수를 위해서 도커시스템을 사용했다. **유저**가 한번 접속해서 오래 사용하는 방식이 아닌, 짧은 접속을 자주하는 웹 페이지이기 때문에, 새로 고침을 통해 새로운 정보를 조회 할 수 있고 최초 접속속도가 빠른 http 통신 방식으로 웹 페이지를 조회할 수 있도록 하였다. http 통신 과정에서의 기본적인 보안 시스템은 장고에서 제공되는 라이브러리들을 사용하였다.
+
+[그림 4]과 같이 주차장에 차량이 주차되어 있을 때 카메라 클라이언트에서 각 주차면마다 차량 유무를 분석하고, 분석 데이터를 웹 서버로 보내어 [그림 6]과 같이 **웹 페이지에** 나타낸다.
+
+![그림 6](https://github.com/oneonlee/where-cargo/blob/main/2021_smart_contest/%EC%B2%A8%EB%B6%80%ED%8C%8C%EC%9D%BC/%E1%84%8B%E1%85%B0%E1%86%B8.png?raw=true)
+
+<center>[그림 6] 주차장 현황 안내 웹 페이지</center>
+<br>
+
 ---
 
 ## <center><strong>IV. 결론</strong></center>
@@ -112,4 +124,3 @@
 #### 참고
 
 1. **볼드친 부분은 약간 애매한 표현**
-2. 서비스 구성도와 서비스 흐름도 배치 고민중
