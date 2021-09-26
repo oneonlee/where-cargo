@@ -1,6 +1,6 @@
 # 어디라카고 : 스마트 항만 주차정보시스템 <img width=3% alt="어디라카고" src="frontend/src/logo-ver1.png">
 
- [2021년 스마트 해상물류 ICT멘토링 프로젝트](https://www.hanium.or.kr/upload/b0cf7e50-16a7-4b85-95e5-7dd475688de4.jpg) & [2021 스마트 해상물류 경진대회](https://www.hanium.or.kr/portal/subscription/info.do?trackSeq=10) & [2021 스마트해상물류 한국정보처리학회 ICT멘토링 학술대회(ACK 2021)](https://www.manuscriptlink.com/society/kips/conference/ACK2021) 참가 작품 <img width=1.5% alt="어디라카고" src="frontend/src/logo-ver1.png">
+ [2021년 스마트 해상물류 ICT멘토링 프로젝트](https://www.hanium.or.kr/upload/b0cf7e50-16a7-4b85-95e5-7dd475688de4.jpg) & [2021 스마트 해상물류 경진대회](https://www.hanium.or.kr/portal/subscription/info.do?trackSeq=10) & [2021 스마트해상물류 한국정보처리학회 ICT멘토링 학술대회(ACK 2021)](https://www.hanium.or.kr/portal/noticeSmartBoard.do?unitedSeq=15147&articleSeq=55896) 참가 작품 <img width=1.5% alt="어디라카고" src="frontend/src/logo-ver1.png">
 
 물통 팀 : 
 - 구창훈 (인하대학교 아태물류학부, 3)
