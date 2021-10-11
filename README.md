@@ -8,9 +8,11 @@
 - 이동건 (인하대학교 정보통신공학과, 2)
 - 정윤주 (인하대학교 아태물류학부, 4)
 
-<div align="center"><img width=30% alt="2021년 스마트해상물류 ICT멘토링 프로젝트" src="https://www.hanium.or.kr/upload/b0cf7e50-16a7-4b85-95e5-7dd475688de4.jpg">  <img width=27.7% alt="2021 스마트 해상물류 경진대회" src="https://user-images.githubusercontent.com/73745836/131260409-d30aee43-24ab-43e1-8312-1a95b277f51f.png"><img width=32.5% alt="2021 스마트해상물류 한국정보처리학회 ICT멘토링 학술대회(ACK 2021)" src="https://user-images.githubusercontent.com/73745836/134821594-703f777c-feed-4389-9874-0b4d7586af9e.png"></div>
- 
----
+<div align="center"><img width=30% alt="2021년 스마트해상물류 ICT멘토링 프로젝트" src="https://www.hanium.or.kr/upload/b0cf7e50-16a7-4b85-95e5-7dd475688de4.jpg">  <img width=27.7% alt="2021 스마트 해상물류 경진대회" src="https://user-images.githubusercontent.com/73745836/131260409-d30aee43-24ab-43e1-8312-1a95b277f51f.png"><img width=32.5% alt="2021 스마트해상물류 한국정보처리학회 ICT멘토링 학술대회(ACK 2021)" src="https://user-images.githubusercontent.com/73745836/134821594-703f777c-feed-4389-9874-0b4d7586af9e.png"></div> 
+
+## 논문
+[딥 러닝 기반 영상처리를 통한 스마트 항만 주차정보시스템 설계 및 구현 (2021년 한국정보처리학회 추계학술발표대회)](https://github.com/oneonlee/where-cargo/blob/main/ACK_2021/%E1%84%83%E1%85%B5%E1%86%B8%20%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%80%E1%85%B5%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%86%BC%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%90%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%89%E1%85%B3%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%92%E1%85%A1%E1%86%BC%E1%84%86%E1%85%A1%E1%86%AB%20%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A9%E1%84%89%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%A6%E1%86%B7%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%80%E1%85%A8%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%80%E1%85%AE%E1%84%92%E1%85%A7%E1%86%AB.pdf)
+
 ## 시연 영상
 
 <div align="center"><img width=70% alt="서비스 구성도" src="/test.gif"></div>
