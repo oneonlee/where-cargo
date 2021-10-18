@@ -20,6 +20,10 @@
 
 ---
 
+## 개발보고서 및 SW개발&HW제작 설계서
+- [개발보고서](https://github.com/oneonlee/where-cargo/blob/main/2021_smart_contest/%E1%84%8B%E1%85%A5%E1%84%83%E1%85%B5%E1%84%85%E1%85%A1%E1%84%8F%E1%85%A1%E1%84%80%E1%85%A9%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%87%E1%85%A9%E1%84%80%E1%85%A9%E1%84%89%E1%85%A5.pdf)
+- [SW개발&HW제작 설계서](https://github.com/oneonlee/where-cargo/blob/main/2021_smart_contest/%E1%84%8B%E1%85%A5%E1%84%83%E1%85%B5%E1%84%85%E1%85%A1%E1%84%8F%E1%85%A1%E1%84%80%E1%85%A9%20SW%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%26HW%E1%84%8C%E1%85%A6%E1%84%8C%E1%85%A1%E1%86%A8%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%80%E1%85%A8%E1%84%89%E1%85%A5.pdf)
+
 ## 서비스 구성도
 <img width=100% alt="서비스 구성도" src="2021_smart_contest/첨부파일/구성도:흐름도/서비스 구성도.jpg">
 <img width=100% alt="서비스 흐름도" src="2021_smart_contest/첨부파일/구성도:흐름도/서비스 흐름도.jpg">
