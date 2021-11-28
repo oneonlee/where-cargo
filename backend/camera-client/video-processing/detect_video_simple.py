@@ -4,14 +4,16 @@ from tensorflow.python.saved_model import tag_constants
 import cv2
 import numpy as np
 
-MODEL_PATH = './checkpoints/yolov4-416'
+MODEL_PATH = './checkpoints/yolov4-tiny-416'
 IOU_THRESHOLD = 0.45
 SCORE_THRESHOLD = 0.25
 INPUT_SIZE = 416
 
 # load model
-saved_model_loaded = tf.saved_model.load(MODEL_PATH, tags=[tag_constants.SERVING])
+saved_model_loaded = tf.saved_model.load(
+    MODEL_PATH, tags=[tag_constants.SERVING])
 infer = saved_model_loaded.signatures['serving_default']
+
 
 def main(video_path):
     cap = cv2.VideoCapture(video_path)
@@ -46,19 +48,21 @@ def main(video_path):
 
         detected_obj_list = []
 
-        pred_bbox = [boxes.numpy(), scores.numpy(), classes.numpy(), valid_detections.numpy()]
-        result, obj_name_list = utils.draw_bbox(detected_obj_list, img, pred_bbox)
+        pred_bbox = [boxes.numpy(), scores.numpy(), classes.numpy(),
+                     valid_detections.numpy()]
+        result, obj_name_list = utils.draw_bbox(
+            detected_obj_list, img, pred_bbox)
 
         result = cv2.cvtColor(np.array(result), cv2.COLOR_RGB2BGR)
 
         print(obj_name_list)
-
         cv2.imshow('result', result)
         # if cv2.waitKey(1) == ord('q'):
-            # break
+        # break
 
     return detected_obj_list
-    
+
+
 if __name__ == '__main__':
     # video_path = './data/test2.mov'
     video_path = 0

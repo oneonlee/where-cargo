@@ -59,6 +59,6 @@ def main(video_path):
 
 if __name__ == '__main__':
     # video_path = './data/test2.mov'
-    video_path = 2
+    video_path = 0
 
     main(video_path)

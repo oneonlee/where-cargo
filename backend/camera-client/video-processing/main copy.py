@@ -4,11 +4,11 @@ import cv2
 import detect_simple as detect
 from http_client import http_client
 
-URL = "http://158.247.202.164/result/"
+URL = "http://192.168.0.16:8080/result/"
 
 
-# cap = cv2.VideoCapture("data/test3.mov")
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("data/test3.mov")
+# cap = cv2.VideoCapture(1)
 ret, img = cap.read()     # 카메라로부터 현재 영상을 받아 img에 저장, 잘 받았다면 ret가 참
 
 init_img_capture(img)
@@ -52,16 +52,6 @@ while cap.isOpened():
 
     result_dict_for_json = judging_continous(
         CONTINOUS_VALUE, detected_result_dict, continous_info)
-    temp_dict = {}
-
-    # for i in range(8):
-    #     temp_dict[i] = result_dict_for_json[i]
-    # temp_dict = result_dict_for_json
-    # for i in range(4):
-    #     result_dict_for_json[i] = temp_dict[i+4]
-    # for i in range(4):
-    #     result_dict_for_json[i+4] = temp_dict[i]
-
     print(result_dict_for_json)
     http_client(result_dict_for_json, URL)
 
