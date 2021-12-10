@@ -11,7 +11,7 @@
 <div align="center"><img width=30% alt="2021년 스마트해상물류 ICT멘토링 프로젝트" src="https://www.hanium.or.kr/upload/b0cf7e50-16a7-4b85-95e5-7dd475688de4.jpg">  <img width=27.7% alt="2021 스마트 해상물류 경진대회" src="https://user-images.githubusercontent.com/73745836/131260409-d30aee43-24ab-43e1-8312-1a95b277f51f.png"><img width=32.5% alt="2021 스마트해상물류 한국정보처리학회 ICT멘토링 학술대회(ACK 2021)" src="https://user-images.githubusercontent.com/73745836/134821594-703f777c-feed-4389-9874-0b4d7586af9e.png"></div> 
 
 ## 논문
-[딥 러닝 기반 영상처리를 통한 스마트 항만 주차정보시스템 설계 및 구현 (2021년 한국정보처리학회 추계학술발표대회)](https://manuscriptlink-society-file.s3-ap-northeast-1.amazonaws.com/kips/conference/ack2021/abs/KIPS_C2021B0081.pdf)
+[딥 러닝 기반 영상처리를 통한 스마트 항만 주차정보시스템 설계 및 구현 (2021년 한국정보처리학회 추계학술발표대회)](https://www.koreascience.or.kr/article/CFKO202133648918944.page)
 
 ## 시연 영상
 
@@ -37,9 +37,6 @@
 
 - 포스트잇으로 backlog 관리 :
 <img width=75% alt="포스트잇" src="2021_smart_contest/첨부파일/프로젝트 관리/프로젝트 및 이슈 관리 2 - 애자일 방법론 중 스크럼, 포스트잇으로 backlog 관리.JPG">
-
-
-업데이트 중!
 
 
 
